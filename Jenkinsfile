@@ -22,7 +22,12 @@ pipeline {
                 docker { image 'node:alpine' }
             }
             steps {
-                echo 'Build'      
+               dir('code/frontend'){
+                   sh 'npm run build'
+                }
+                dir('code/backend'){
+                   sh 'npm run build'
+                }
             }
         }
         stage('Static Analysis') {
