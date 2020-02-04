@@ -9,6 +9,12 @@ pipeline {
             }
             steps {
                 echo 'Prepare'
+                dir('code/frontend'){
+                    sh 'npm install'
+                }
+                dir('code/backend'){
+                    sh 'npm install'
+                }
             }
         }
         stage('Build') {
